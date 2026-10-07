@@ -1,6 +1,9 @@
 # Shot List — First 3 Reels (film-yourself → swap)
 
-Codex's three concepts, restructured for the swap pipeline: open on the product, one continuous host take ≤ 20 s, demo as a cutaway, keyword CTA. Spoken lines are what **you** say on camera; they come out in her voice.
+Codex's three concepts, restructured for the swap pipeline: open on the product, one continuous host take ≤ 20 s, demo as a cutaway, keyword CTA.
+
+**Mia reels (American):** say the lines on camera in your own voice; they get converted to hers.
+**Ava reels (British):** generate her line as TTS first, play it in one earbud, and say it out loud *with her* on camera. Her TTS replaces your track; a lipsync pass finishes it. (SOP §7.)
 
 Film two takes of each. Say "Reel one, take one" before you start (trimmed later). Check for mirrors.
 
@@ -36,10 +39,10 @@ On-screen: **Walkthrough → tour → one link**
 **0:00–0:02 Hook b-roll (not you):** the staged result of *this* room, if you've run it through AI Photo Studio. Otherwise a real before/after pair from the app.
 On-screen: **Great floor. Now what?**
 
-**0:02–0:20 Host take — you, fixed camera, waist-up, Ava energy (warm, quick, a smile on the punchline). Open palm toward the room, one glance down at the floor on "floor":**
+**0:02–0:20 Host take — you, fixed camera, waist-up, to Ava's playback (warm, quick, a smile on the punchline). Open palm toward the room, one glance down at the floor on "floor":**
 
 > "This room has potential. Right now the floor's doing all the work. [smile]
-> Rendprop's photo studio drops furniture in so buyers can picture living here — and it keeps the original right next to it, labeled, so nobody's getting fooled.
+> Rendprop's photo studio drops furniture in so buyers can picture living here — and it keeps the original right next to it, labelled, so nobody's getting fooled. Brilliant.
 > Comment STAGE and I'll send you the app."
 
 **Demo cutaway (edit, 0:09–0:15):** original photo and staged photo side by side, "Original" / "AI virtually staged" labels visible.
@@ -58,11 +61,11 @@ On-screen: **Help buyers picture the space**
 **0:00–0:02 Hook b-roll (not you):** the fly-through of the space.
 On-screen: **I filmed this restaurant in 3 minutes.**
 
-**0:02–0:20 Host take — slow walk-and-talk, full body to waist-up, Ava energy:**
+**0:02–0:20 Host take — slow walk-and-talk, full body to waist-up, to Ava's playback:**
 
 > "Every restaurant has photos. Almost none have this. [gesture at the room]
 > Walk through once with your phone, and Rendprop turns it into a tour people can actually move through — for the website, the Google listing, the booking page.
-> Same thing works for gyms, venues, shops.
+> Same thing works for gyms, venues, shops. Lovely.
 > Comment SPACE and I'll send it to you."
 
 **Demo cutaway (edit, 0:10–0:15):** the hosted tour of the space, a scroll and a room jump.
@@ -76,6 +79,7 @@ On-screen: **Restaurants · gyms · venues · shops**
 
 ## Before you shoot — checklist
 
+- [ ] Ava's TTS lines for Reels 2 and 3 generated and on your phone (one earbud in).
 - [ ] 9:16, 1080p, 30 fps. Tripod or a steady prop for Reels 1 and 2.
 - [ ] Fitted mid-tone shirt, no logos, no hat, no glasses.
 - [ ] Window light on your face.

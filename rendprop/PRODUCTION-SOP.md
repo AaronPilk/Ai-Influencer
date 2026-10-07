@@ -17,12 +17,21 @@
 ## 2. The pipeline
 
 ```
-FILM (phone, 9:16)  →  TRIM to ≤ 25 s  →  GENJUTSU OBJECT SWAP (Pilk → Ava/Mia)
-→  VOICE CHANGE (Pilk's track → host voice, speech-to-speech)
+MIA (American)
+FILM (phone, 9:16)  →  TRIM to ≤ 25 s  →  GENJUTSU OBJECT SWAP (Pilk → Mia)
+→  SPEECH-TO-SPEECH (Pilk's track → Mia's voice; timing unchanged)
 →  [LIP-SYNC PASS only if the swap's mouth is off]  ⚠️
+→  EDIT  →  ZERNIO
+
+AVA (British)
+TTS Ava's line first  →  FILM to playback (earbud, say it with her)  →  TRIM
+→  GENJUTSU OBJECT SWAP (Pilk → Ava)  →  replace audio with the TTS track
+→  VIDEO-TO-VIDEO LIP-SYNC to the TTS (always)
 →  EDIT (hook b-roll, demo cutaway, captions, AI-host label, CTA)
 →  ZERNIO schedule (Rendprop IG · FB · YouTube Shorts)
 ```
+
+Why two paths: voice conversion keeps the speaker's accent. Pilk's American delivery can become Mia; it can't become a British Ava. Details in §7.
 
 ### Genjutsu settings
 
@@ -109,9 +118,11 @@ One take, one swap, one voice conversion. The demo cutaway and the hook b-roll a
 
 Three 8–10 second clips, same day, same room:
 
-1. **Talking, fixed camera, chest-up.** You say a Mia line with a deadpan pause. → Tests face, lips, hair, voice conversion.
-2. **Walk-and-talk, full body, slow handheld.** Walking toward a window saying an Ava line. → Tests body swap across a gender/build difference, feet, camera motion.
+1. **Talking, fixed camera, chest-up.** You say a Mia line with a deadpan pause. → Tests face, lips, hair, and Mia's speech-to-speech conversion.
+2. **Walk-and-talk, full body, slow handheld.** Walking toward a window saying an Ava line **to playback** (her British TTS in one earbud). → Tests body swap across a gender/build difference, feet, camera motion, and the Ava TTS + lipsync path end to end.
 3. **Phone in hand.** Chest-up, holding your phone up as if capturing the room. → Tests hands + prop.
+
+Do the voice design (§7.1) **before** this shoot so clip 2 has a real Ava line to play back.
 
 Render all three at 480p. What to check:
 
@@ -124,11 +135,50 @@ Render all three at 480p. What to check:
 
 Pass → render the first reel at 1080p. Fail on lips → lip-sync pass. Fail on identity → add a chest-up portrait to the refs and re-test. Then update this file.
 
-## 7. Voices (one-time setup, after the test says which path we need)
+## 7. Voices — Ava is British, Mia is American (decided 7 Oct 2026)
 
-- Create **two** voices, once. Ava: warm, bright, conversational American English, mid register. Mia: calm, slightly lower, dry. Save both; never regenerate them.
-- Speech-to-speech conversion of your take (not text-to-speech) — it keeps your timing so the lips stay honest.
-- Loudness-match every clip in the edit; converted voices come out at inconsistent levels.
+**The constraint that shapes this:** speech-to-speech voice conversion keeps the *source speaker's accent*, cadence and emotion and only swaps the timbre. ElevenLabs documents it plainly — record American, pick a British voice, you get the British voice with an American accent. Higgsfield's Voice Change is the same class of tool. So:
+
+| Host | Accent | Audio path | Lip-sync pass |
+|---|---|---|---|
+| **Mia** | General American | **Speech-to-speech** from Pilk's take → Mia's voice. Timing identical to the swap, lips already match. | Only if the swap test shows mouth drift |
+| **Ava** | Modern southern English (light, not posh) | **Text-to-speech** in Ava's designed voice. Pilk films to playback (below). TTS track replaces his audio. | **Always** — video-to-video lipsync (Kling Lipsync / Sync Lipsync 3 in Higgsfield's Lipsync Studio) locks her mouth to the TTS |
+
+### 7.1 Design the voices once (ElevenLabs Voice Design — describes a voice into existence; no real person is cloned)
+
+Generate three candidates per description, pick one, save it with the host's name, never regenerate. Export a 30-second sample of each as the reference. Paid plan = commercial rights.
+
+**Ava — paste this:**
+> Young woman, late twenties, warm and playful. Modern southern English accent — light, natural and contemporary, not posh, not theatrical, no period-drama RP. Quick and bright, a smile in the voice, mid register. Sounds like a friendly presenter talking to a mate, not reading an advert. Clean studio recording.
+
+**Mia — paste this:**
+> Woman, early thirties, General American accent. Calm, confident, with a dry sense of humor. Slightly lower register, even pace, understated — the kind of voice that lands a joke without smiling. Clear and warm, never salesy. Clean studio recording.
+
+Why that British accent: a light modern southern English voice reads premium and is instantly clear to American ears. Heavy regional accents cost comprehension with a US real-estate audience; stiff RP fights Ava's playful character. If you want her younger and more casual, ask for "Estuary / London" instead.
+
+If you'd rather keep audio inside Higgsfield: upload the ElevenLabs sample to Higgsfield Audio → clone it as a reusable voice there. Higgsfield's own voice creation clones from a sample; it doesn't design from a description.
+
+### 7.2 Mia takes — speech-to-speech
+
+1. Trim your take. 2. ElevenLabs Voice Changer (or Higgsfield Audio → Voice Change): source = your audio, target = Mia. "Remove background noise" on. Stability ~50, similarity ~80, style 0. 3. Lay the converted track under the swapped video — same length, same timing, nothing to align. 4. Loudness-match in the edit.
+
+Perform Mia on set: flat delivery, the half-beat after the joke. Whatever you do with your voice, she does.
+
+### 7.3 Ava takes — TTS + film to playback
+
+1. **Before the shoot**, generate Ava's lines as TTS (ElevenLabs, model v3 or Multilingual v2; stability ~45–55 for expressiveness, similarity ~75, style low). Listen; regenerate until the read is right. Export MP3.
+2. **On set**, play her line in one earbud and **say the words out loud with her**, matching her pace. Your gestures, head movement and emphasis now land on her beats. (Standard music-video playback technique.)
+3. Swap as normal. In the edit, mute your track and lay her TTS under the swapped clip, aligned to your first word.
+4. Run the clip through video-to-video lipsync with her TTS audio. Her mouth now matches her voice exactly.
+5. Fallback if you can't do playback on a given shoot: film normally, swap, lipsync to the TTS anyway — the lipsync model re-animates the mouth regardless. You lose a little gesture-to-word alignment, nothing more.
+
+### 7.4 Writing for a British Ava
+
+The audience is American agents and owners, so **keep US real-estate vocabulary** (listing, agent, photographer, open house). Let her *phrasing* be lightly British — "brilliant," "sorted," "a bit," "lovely" — one per script at most. Never "estate agent," "flat," or "viewing"; those confuse the buyer we're talking to.
+
+### 7.5 Cost
+
+ElevenLabs Creator plan (~$22/mo) covers a month of reels many times over — 30 reels × 20 s is about 10 minutes of audio. Lipsync passes cost Higgsfield credits; the generator shows the number. Budget roughly one extra lipsync per Ava reel on top of the swap.
 
 ## 8. Edit spec
 
