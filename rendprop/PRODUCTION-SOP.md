@@ -33,6 +33,15 @@ TTS Ava's line first  →  FILM to playback (earbud, say it with her)  →  TRIM
 
 Why two paths: voice conversion keeps the speaker's accent. Pilk's American delivery can become Mia; it can't become a British Ava. Details in §7.
 
+### Two Genjutsu modes — pick by whether the real room stays
+
+| You want | Mode | Model id (MCP) | References |
+|---|---|---|---|
+| Keep the real room you filmed in, swap only you → her | **Object Swap** | `hf_mult_replace_object` | her sheet (+ motion-start) |
+| New location (she's "at her listing," you were in your apartment) | **Motion Transfer** | `hf_mult_motion_control` | her sheet + motion-start **+ a location image** (generate a 9:16 exterior with no people; reuse the same one so her listing stays consistent) |
+
+First real test (7 Oct) was Motion Transfer: Pilk filmed in his apartment, wanted her in front of a nice house. 29.2 s at 480p cost 87 credits.
+
 ### Genjutsu settings
 
 | Setting | Value | Why |
