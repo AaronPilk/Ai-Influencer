@@ -186,6 +186,14 @@ Why that British accent: a light modern southern English voice reads premium and
 
 If you'd rather keep audio inside Higgsfield: upload the ElevenLabs sample to Higgsfield Audio → clone it as a reusable voice there. Higgsfield's own voice creation clones from a sample; it doesn't design from a description.
 
+### 7.1b What the first real conversion taught (7 Oct 2026)
+
+- **Pitch the source up before converting.** Pilk's register is far below both hosts; a straight male→female conversion came out "deeper" than the designed voice. Shifting his track **+4 semitones at the same tempo** (`ffmpeg -af "rubberband=pitch=1.2599:tempo=1.0"`) before speech-to-speech fixed it. Tempo unchanged = lips still line up.
+- **Check the sliders after switching voices.** The Voice Changer resets stability/similarity/style to the voice's defaults when you change the target, and a careless drag can land Style Exaggeration at 40–50%, which warps the voice. Use "Reset values" then set deliberately: stability 50, similarity 75–100, style 0, Remove Background Noise ON, Speaker boost ON.
+- **ElevenLabs encodes the settings in the download filename:** `..._gen_sp100_s50_sb75_se0_b_e2.mp3` = speaker boost on, stability 50, similarity 75, style 0, model English v2. Handy for knowing which take you kept.
+- Cost observed: ~486 ElevenLabs credits per 29-second conversion.
+- **Pilk's verdict:** Mia straight conversion "sounds deeper"; Ava conversion of the pitched source "sounds good." Note: speech-to-speech keeps his American accent, so Ava-via-conversion is not British. Decision pending on whether that's acceptable (if yes, both hosts run the Mia pipeline and §7.3 is retired).
+
 ### 7.2 Mia takes — speech-to-speech
 
 1. Trim your take. 2. ElevenLabs Voice Changer (or Higgsfield Audio → Voice Change): source = your audio, target = Mia. "Remove background noise" on. Stability ~50, similarity ~80, style 0. 3. Lay the converted track under the swapped video — same length, same timing, nothing to align. 4. Loudness-match in the edit.
