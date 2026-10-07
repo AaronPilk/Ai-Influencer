@@ -40,7 +40,7 @@ Why two paths: voice conversion keeps the speaker's accent. Pilk's American deli
 | Keep the real room you filmed in, swap only you → her | **Object Swap** | `hf_mult_replace_object` | her sheet (+ motion-start) |
 | New location (she's "at her listing," you were in your apartment) | **Motion Transfer** | `hf_mult_motion_control` | her sheet + motion-start **+ a location image** (generate a 9:16 exterior with no people; reuse the same one so her listing stays consistent) |
 
-First real test (7 Oct) was Motion Transfer: Pilk filmed in his apartment, wanted her in front of a nice house. 29.2 s at 480p cost 87 credits.
+First real test (7 Oct) was Motion Transfer: Pilk filmed in his apartment, wanted her in front of a nice house. 29.2 s at 480p cost 87 credits. Identity and motion held for all 29 s (blazer, hair, hands, even the phone in his hand). Pilk's verdict: "close… looks like wallpaper." Cause: locked-off full-body wide shot with a ceiling fan's worth of headroom + a pristine generated listing plate with no cast shadow for her. **Lesson: the footage sets the ceiling.** For the Rendprop host, film at a real exterior, waist-up, slow handheld drift, and use Object Swap — the background is then real and the "backdrop" problem disappears. Generated plates are for when a location truly can't be filmed.
 
 ### Genjutsu settings
 
@@ -193,6 +193,18 @@ If you'd rather keep audio inside Higgsfield: upload the ElevenLabs sample to Hi
 - **ElevenLabs encodes the settings in the download filename:** `..._gen_sp100_s50_sb75_se0_b_e2.mp3` = speaker boost on, stability 50, similarity 75, style 0, model English v2. Handy for knowing which take you kept.
 - Cost observed: ~486 ElevenLabs credits per 29-second conversion.
 - **Pilk's verdict:** Mia straight conversion "sounds deeper"; Ava conversion of the pitched source "sounds good." Note: speech-to-speech keeps his American accent, so Ava-via-conversion is not British. Decision pending on whether that's acceptable (if yes, both hosts run the Mia pipeline and §7.3 is retired).
+
+### 7.1.5 Pre-pitch the source before any speech-to-speech (learned 7 Oct)
+
+Male → female conversion inherits the source register: Pilk's first Mia pass came out "deeper" than the designed voice. Measured: Pilk ~132 Hz median → converted output too low. Fix: pitch the source **+4 semitones at the same tempo** before conversion (lips stay in sync because duration is unchanged):
+
+```
+ffmpeg -i take_audio.mp3 -af "rubberband=pitch=1.2599:tempo=1.0" -c:a libmp3lame -b:a 192k take_audio_up4.mp3
+```
+
+Result: pitched source 165 Hz → converted Ava 216 Hz (natural female register). Standard step for every host take. Settings that produced it: Eleven English v2, stability 50, similarity 75, style 0, speaker boost on, remove background noise on. (A pass with stability 100 / style 49 — slider misfire — was rejected.)
+
+**Ava via speech-to-speech — happy accident, 7 Oct:** the pitched source converted into Ava's voice by mistake and Pilk's verdict was "ava sounds good" / "that's not terrible" on the muxed clip. If he accepts her accent as it comes out of STS, Ava runs on his performance exactly like Mia and §7.3's TTS + playback + lipsync path is only a fallback. Pending his call on whether she needs to sound more British.
 
 ### 7.2 Mia takes — speech-to-speech
 
