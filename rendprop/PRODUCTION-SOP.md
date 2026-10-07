@@ -162,6 +162,15 @@ Preview text: *"I filmed this whole house on my phone. Took four minutes. [pause
 
 Mia's designed voice only has to be a good *timbre* — her performance comes from Pilk's takes via speech-to-speech, which is why she will always sound more human than any TTS preview.
 
+**SAVED 7 Oct 2026 (ElevenLabs, Creator plan, 30 custom-voice slots):**
+- `Ava - Rendprop host (British)` — labels English / British. Pilk picked Voice 1 of the realism batch.
+- `Mia - Rendprop host (American)` — labels English / American. Pilk picked Voice 3.
+- Never regenerate these. Any "new Ava" is a different woman.
+
+**TTS model for Ava's lines:** Eleven v4 (launched Oct 2026; free on the account for two weeks at kickoff, ~242K credits). Default stability (Natural, mid) and similarity ~75% produced two 21-second takes of the Reel 2 line on the first try. Use `[laughs]`-style audio tags sparingly; write in fragments and ellipses the way people talk.
+
+**Fallback if v4 TTS of the designed Ava still reads as AI:** swap Ava's *voice* for a Voice Library voice based on a real recorded British woman — ElevenLabs recommended `Charlotte - Warm, Clear, Modern` (84K users) and `Edmund – British Podcast Host` for this text. Same pipeline, just a different voice behind the face. Last resort: Ava goes American and runs through Pilk's performance like Mia.
+
 Why that British accent: a light modern southern English voice reads premium and is instantly clear to American ears. Heavy regional accents cost comprehension with a US real-estate audience; stiff RP fights Ava's playful character. If you want her younger and more casual, ask for "Estuary / London" instead.
 
 If you'd rather keep audio inside Higgsfield: upload the ElevenLabs sample to Higgsfield Audio → clone it as a reusable voice there. Higgsfield's own voice creation clones from a sample; it doesn't design from a description.
