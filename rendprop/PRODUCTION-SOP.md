@@ -169,7 +169,9 @@ Mia's designed voice only has to be a good *timbre* — her performance comes fr
 
 **TTS model for Ava's lines:** Eleven v4 (launched Oct 2026; free on the account for two weeks at kickoff, ~242K credits). Default stability (Natural, mid) and similarity ~75% produced two 21-second takes of the Reel 2 line on the first try. Use `[laughs]`-style audio tags sparingly; write in fragments and ellipses the way people talk.
 
-**Fallback if v4 TTS of the designed Ava still reads as AI:** swap Ava's *voice* for a Voice Library voice based on a real recorded British woman — ElevenLabs recommended `Charlotte - Warm, Clear, Modern` (84K users) and `Edmund – British Podcast Host` for this text. Same pipeline, just a different voice behind the face. Last resort: Ava goes American and runs through Pilk's performance like Mia.
+**AVA LOCKED — 7 Oct 2026.** Pilk heard the Reel 2 line on Eleven v4 and said "she sounds real to me." The designed voice stays; no library swap. Reel 2 and Reel 3 lines are generated and sitting in ElevenLabs History (two takes each, ~20 s) — these are the playback tracks for the test shoot.
+
+Fallback kept on file only: `Charlotte - Warm, Clear, Modern` (library, real recorded British woman, 84K users) if a future line ever reads as AI. Last resort: Ava goes American and runs through Pilk's performance like Mia.
 
 Why that British accent: a light modern southern English voice reads premium and is instantly clear to American ears. Heavy regional accents cost comprehension with a US real-estate audience; stiff RP fights Ava's playful character. If you want her younger and more casual, ask for "Estuary / London" instead.
 
