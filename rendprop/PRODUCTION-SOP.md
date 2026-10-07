@@ -146,13 +146,21 @@ Pass → render the first reel at 1080p. Fail on lips → lip-sync pass. Fail on
 
 ### 7.1 Design the voices once (ElevenLabs Voice Design — describes a voice into existence; no real person is cloned)
 
-Generate three candidates per description, pick one, save it with the host's name, never regenerate. Export a 30-second sample of each as the reference. Paid plan = commercial rights.
+Generate three candidates per description, pick one by ear, save it with the host's name, never regenerate. Export a 30-second sample of each as the reference. Paid plan = commercial rights.
 
-**Ava — paste this:**
-> Young woman, late twenties, warm and playful. Modern southern English accent — light, natural and contemporary, not posh, not theatrical, no period-drama RP. Quick and bright, a smile in the voice, mid register. Sounds like a friendly presenter talking to a mate, not reading an advert. Clean studio recording.
+**What we learned on 7 Oct (first live session):** the "clean studio recording, perfect audio quality" style of prompt produces an announcer — Pilk's verdict was "sounds like AI too much." The fix that worked, in his words "much better": describe a *real person in a real situation*, ask for imperfection, turn **Generate Preview Text OFF** and paste an actual conversational script line with a `[laughs]` tag, and drop **Guidance Scale to ~18%** (default was ~38%). Loudness left at default.
 
-**Mia — paste this:**
-> Woman, early thirties, General American accent. Calm, confident, with a dry sense of humor. Slightly lower register, even pace, understated — the kind of voice that lands a joke without smiling. Clear and warm, never salesy. Clean studio recording.
+**Ava — the prompt that worked:**
+> A real young woman from the south of England, late twenties, recorded casually like a voice note to a friend. Modern everyday southern English accent, not posh, not newsreader, not theatrical. Warm, playful, a bit cheeky, quick and bright with a natural smile in her voice. Imperfect and human: uneven pacing, small breaths, light natural room tone, the occasional soft laugh. Mid register. Sounds like a mate explaining something she's excited about, never like an advert or an announcer.
+
+Preview text used: *"Okay so... this room has potential. Right now the floor's doing all the work. [laughs] Rendprop's photo studio drops furniture in, so buyers can actually picture living here. And it keeps the original right next to it, labelled, so nobody's getting fooled. Honestly? Brilliant. Comment STAGE and I'll send you the app."*
+
+**Mia — same recipe:**
+> A real American woman, early thirties, recorded casually like she's talking to a friend across a table. General American accent. Calm, confident, dry sense of humor — lands a joke without smiling. Slightly lower register, even unhurried pace, understated. Imperfect and human: natural breaths, light room tone, a half-beat pause before the punchline. Never salesy, never an announcer.
+
+Preview text: *"I filmed this whole house on my phone. Took four minutes. [pause] Rendprop turned the walkthrough into a tour that scrolls like a movie. Tap a room, jump straight to it, send one link. No photographer. No scheduling. No Tuesday. Comment TOUR and I'll send you the app."*
+
+Mia's designed voice only has to be a good *timbre* — her performance comes from Pilk's takes via speech-to-speech, which is why she will always sound more human than any TTS preview.
 
 Why that British accent: a light modern southern English voice reads premium and is instantly clear to American ears. Heavy regional accents cost comprehension with a US real-estate audience; stiff RP fights Ava's playful character. If you want her younger and more casual, ask for "Estuary / London" instead.
 
